@@ -89,7 +89,7 @@ int main(int argc, char* argv[]){
     printf("\nHex:\n\n");
     int i,x;
     for(i=0;i<strlen(input);i++){
-        for(x = 0;x < 95;x++){
+        for(x=0;x<95;x++){
             if(input[i] == asciidb[x]){
                 // Output..
                 printf("\\x%s", hexdb[x]);
