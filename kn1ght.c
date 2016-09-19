@@ -53,6 +53,8 @@ SOFTWARE.
 
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
+#include <stdlib.h>
 
 #define SIZE 1024
 
@@ -90,8 +92,32 @@ void plaintext(char *);
 void plaintextreverse(char *);
 
 int main(int argc, char* argv[]){
+    
+    bool revmode;
+    int ca=1;
+    while(argv[ca]){
+        if(!strcmp(argv[ca],"-h")){
+            show_help();
+        }
+        else if(!strcmp(argv[ca],"-r")){
+            revmode=true; //enable reverse
+            break;
+        }
+        else if(strcmp(argv[ca],"")){
+            printf("Invalid argument\n");
+            show_help();
+            exit(0);
+        }
+        else {
+            revmode=false;
+            break;
+        }
+    }
 
     printf("kn1ght - Alphanumeric Shellcode Encoder, Coded By. roissy - MIT Licence\n\n");
+    if(revmode==true){
+        printf("Reverse mode enabled\n");
+    }
 
     char input[SIZE];
 
@@ -101,13 +127,22 @@ int main(int argc, char* argv[]){
     // Encode
     printf("\nHex:\n\n");
 
-    plaintext(input);
-    printf("\n");
-    //plaintextreverse(input);
-    printf("\n");
+    if(revmode==true){
+        plaintextreverse(input);
+        printf("\n");
+    }
+    else {
+        plaintext(input);
+        printf("\n");
+    }
 
     return 0;
 
+}
+
+void show_help(void){
+    printf("Usage: ./kn1ght [-h (help)] [-r (reverse)]");
+    exit(0);
 }
 
 void plaintext(char *arg){
