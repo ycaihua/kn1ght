@@ -95,7 +95,7 @@ int main(int argc, char* argv[]){
 
     char input[SIZE];
 
-    printf("Enter String:");
+    printf("Enter String: ");
     fgets(input,SIZE,stdin);
 
     // Encode
