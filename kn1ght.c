@@ -1,6 +1,5 @@
 /*
 
-
 #kn1ght - Alphanumeric Shellcode Encoder
 #Coded By. roissy
 #Concat: roissy@protonmail.com
@@ -92,7 +91,7 @@ void plaintext(char *);
 void plaintextreverse(char *);
 
 int main(int argc, char* argv[]){
-    
+
     bool revmode;
     int ca=1;
     while(argv[ca]){
